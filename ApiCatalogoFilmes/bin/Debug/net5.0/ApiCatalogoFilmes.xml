@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiCatalogoFilmes</name>
+    </assembly>
+    <members>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.Obter(System.Int32,System.Int32)">
+            <summary>
+            Buscar todos os filmes de forma paginada
+            </summary>
+            <remarks>
+            Não é possível retornar os filmes sem paginação
+            </remarks>
+            <param name="pagina">Indica qual página está sendo consultada. Mínimo 1</param>
+            <param name="quantidade">Indica a quantidade de registros por página. Mínimo 1 e máximo 50</param>
+            <response code="200">Retorna a lista de filmes</response>
+            <response code="204">Caso não haja filmes</response>
+        </member>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.Obter(System.Guid)">
+            <summary>
+            Buscar um filme pelo seu Id
+            </summary>
+            <param name="idFilme">Id do filme buscado</param>
+            <response code="200">Retorna o filme filtrado</response>
+            <response code="204">Caso não haja filme com este id</response>
+        </member>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.InserirFilme(ApiCatalogoFilmes.InputModel.FilmeInputModel)">
+            <summary>
+            Inserir um filme no catálogo
+            </summary>
+            <param name="filmeInputModel">Dados do filme a ser inserido</param>
+            <response code="200">Caso o filme seja inserido com sucesso</response>
+            <response code="422">Caso já exista um filme com mesmo nome e diretor</response>
+        </member>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.AtualizarFilme(System.Guid,ApiCatalogoFilmes.InputModel.FilmeInputModel)">
+            <summary>
+            Atualizar um filme no catálogo
+            </summary>
+            /// <param name="idFilme">Id do filme a ser atualizado</param>
+            <param name="filmeInputModel">Novos dados para atualizar o filme indicado</param>
+            <response code="200">Caso o filme seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um filme com este Id</response>
+        </member>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.AvaliarFilme(System.Guid,System.Int32)">
+            <summary>
+            Avaliar um filme
+            </summary>
+            /// <param name="idFilme">Id do filme a ser avaliado</param>
+            <param name="avaliacao">Nova avaliação do filme</param>
+            <response code="200">Caso a avaliação seja atualizada com sucesso</response>
+            <response code="404">Caso não exista um filme com este Id</response>
+        </member>
+        <member name="M:ApiCatalogoFilmes.Controllers.V1.FilmesController.ApagarFilme(System.Guid)">
+            <summary>
+            Excluir um filme
+            </summary>
+            /// <param name="idFilme">Id do filme a ser excluído</param>
+            <response code="200">Caso o filme seja excluido com sucesso</response>
+            <response code="404">Caso não exista um filme com este Id</response>
+        </member>
+    </members>
+</doc>
